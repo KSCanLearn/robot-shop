@@ -1,6 +1,8 @@
 # RobotShop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+It is following PluralSight, Angular Fundamentals by Jim cooper and Joe Eames.
+Resouces and assets taken from https://github.com/jmcooper/joes-robot-shop
 
 ## Development server
 
