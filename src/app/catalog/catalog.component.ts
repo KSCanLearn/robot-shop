@@ -192,6 +192,11 @@ export class CatalogComponent {
     return '../../assets/images/robot-parts/' + product.imageName;
   }
 
+  getDiscountedClasses(product: IProduct) {
+    if (product.discount > 0) return ['strikethrough'];
+    return [];
+  }
+
   getFilteredProducts = () => {
     return this.filter === ''
       ? this.products

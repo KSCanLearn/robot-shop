@@ -1,10 +1,10 @@
 <div class="container">
   <div class="filters">
-    <a class="button" (click)="filter='Heads'">Heads</a>
-    <a class="button" (click)="filter='Arms'">Arms</a>
-    <a class="button" (click)="filter='Torsos'">Torsos</a>
-    <a class="button" (click)="filter='Bases'">Bases</a>
-    <a class="button" (click)="filter=''">All</a>
+    <a class="button" (click)="filter = 'Heads'">Heads</a>
+    <a class="button" (click)="filter = 'Arms'">Arms</a>
+    <a class="button" (click)="filter = 'Torsos'">Torsos</a>
+    <a class="button" (click)="filter = 'Bases'">Bases</a>
+    <a class="button" (click)="filter = ''">All</a>
   </div>
 
   <ul class="products">
@@ -21,9 +21,17 @@
           </div>
         </div>
         <div class="price">
-          <div *ngIf="product.discount === 0">{{ product.price | currency:'RM' }}</div>
+          <!-- ngStyle or ngClass can be either use like inline or function as shown below -->
+          <!-- But for ngStyle, need to return as an object, just like how conventional 'style' works -->
+          <div
+            
+            [ngStyle]="{ color: product.discount > 0 ? 'grey' : '' }"
+            [ngClass]="getDiscountedClasses(product)"
+          >
+            {{ product.price | currency : "RM" }}
+          </div>
           <div *ngIf="product.discount > 0" class="discount">
-            {{ (product.price * (1 - product.discount)) | currency:'RM' }}
+            {{ product.price * (1 - product.discount) | currency : "RM" }}
           </div>
           <button class="cta">Buy</button>
         </div>

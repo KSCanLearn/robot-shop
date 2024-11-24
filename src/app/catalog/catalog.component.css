@@ -1,3 +1,16 @@
+a {
+  font-weight: bold;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  font-size: small;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 .container {
   display: flex;
   flex-direction: column;
