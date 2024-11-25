@@ -1,0 +1,25 @@
+<div class="product">
+  <div class="product-details">
+    <!-- [] square bracket only creates 1 way data binding from TS to HTML -->
+    <img [src]="getImageUrl(product)" [alt]="product.name" />
+    <div class="product-info">
+      <div class="name">{{ product.name }}</div>
+      <div class="description">{{ product.description }}</div>
+      <div class="category">Part Type: {{ product.category }}</div>
+    </div>
+  </div>
+  <div class="price">
+    <!-- ngStyle or ngClass can be either use like inline or function as shown below -->
+    <!-- But for ngStyle, need to return as an object, just like how conventional 'style' works -->
+    <div
+      [ngStyle]="{ color: product.discount > 0 ? 'grey' : '' }"
+      [ngClass]="getDiscountedClasses(product)"
+    >
+      {{ product.price | currency : "RM" }}
+    </div>
+    <div *ngIf="product.discount > 0" class="discount">
+      {{ product.price * (1 - product.discount) | currency : "RM" }}
+    </div>
+    <button class="cta" (click)="buyButtonClicked()">Buy</button>
+  </div>
+</div>
