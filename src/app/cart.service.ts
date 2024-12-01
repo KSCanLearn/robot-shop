@@ -11,7 +11,7 @@ export class CartService {
     []
   );
 
-  constructor() {
+  constructor(private http: HttpClient) {
 
   }
 
@@ -22,9 +22,9 @@ export class CartService {
   add(product: IProduct) {
     const newCart = [...this.cart.getValue(), product];
     this.cart.next(newCart);
-    // this.http.post('/api/cart', newCart).subscribe(() => {
-    //   console.log('added ' + product.name + ' to cart!');
-    // });
+    this.http.post('/api/cart', newCart).subscribe(() => {
+      console.log('added ' + product.name + ' to cart!');
+    });
   }
 
   remove(product: IProduct) {
